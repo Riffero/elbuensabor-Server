@@ -12,4 +12,12 @@ export class ClienteService extends BaseAbmService<Cliente>{
         private readonly clienteModel: Model<Cliente>){
             super(clienteModel);
         }
+
+    getByMail(mail:string):Promise<Cliente>{
+        try {
+            return <Promise<Cliente>><unknown>this.clienteModel.findOne({ email: mail });
+        } catch (error) {
+            
+        }
+    }
 }
